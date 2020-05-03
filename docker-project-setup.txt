@@ -1,0 +1,20 @@
+First download docker from docker site 
+
+Pull mysql image from https://hub.docker.com/_/mysql
+docker pull mysql:8
+
+create network in docker using following command
+
+>docker network create <network name>
+>docker network create qnetwork
+
+-- run mysql image in network <qnetwork> with user root and password root and database name exam
+docker container run --name mysqldb --network qnetwork -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=exam -d mysql:8
+
+--To run quizz api download the quizapi.tar and load it
+
+>docker load -i quizapi.tar
+
+>docker container run --network qnetwork --name QuizServer -p 8080:8080 -d quizapi
+
+>open browser and goto localhost:8080/exam/api/quizQuestion 
