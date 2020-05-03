@@ -5,3 +5,4 @@
 open a terminal windown and go the location of extract QuizApi.rar here you can see a docker file. run the following command to build a docker image
 >docker image build -t quizapi . 
 
+then follow the direction that written in docker-project-setup.txt.
