@@ -1,0 +1,21 @@
+version: "3"
+services:
+  employee-jdbc:
+    image: quizapi
+    ports:
+      - "8080:8080"
+    networks:
+      - qnetwork
+    depends_on:
+      - mysqldb
+ 
+  mysqldb:
+    image: mysql:8
+    networks:
+      - qnetwork
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=exam 
+
+networks:
+  qnetwork:
